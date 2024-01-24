@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%  block title %}
+Index
+{%  endblock %}
+
+
+{%  block css %}
+<!-- css -->
+{%  endblock %}
+
+{%  block content %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
+      <h1>Dayga xush kelibsiz</h1>
+      <h2>Bizning kompaniya sizga eng oldi mahsulotlarni taklik etadi</h2>
+      <a href="#about" class="btn-get-started scrollto">Boshlash</a>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container">
+
+        <div class="row mt-4">
+          {% for ser in service %}
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
+            <div class="box">
+              <span>{{ forloop.counter }}</span>
+              <h4>{{ser.title}}</h4>
+              <p>{{ser.body}}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </section>
+    <!-- End Why Us Section -->
+
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="row d-flex align-items-center">
+          {% for sponsour in sponsours %}
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="{{sponsour.image.url}}" class="img-fluid" alt="">
+          </div>
+          {% endfor %}
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End Clients Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="text-center">
+          <h3>Biz hazimizda</h3>
+          <p> Bizning kompaniya — bu Xitoy, Rossiya, Evropa, Turkiya va boshqa mamlakatlardagi ishlab chiqaruvchilardan tovarlarni sotib olish imkoniyatini beruvchi global virtual bozor. Saytdagi tovarlar chakana va kichik ulgurji sotiladi. Platforma Xitoyda ishlamaydi — Taobao uni u yerda almashtiradi.</p>
+          <a class="cta-btn" href="{% url 'blog' %}">Ko`proq</a>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Cta Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Maxsulotlar</span>
+          <h2>Maxsulotlar</h2>
+          <p>Biz sizga eng sifatli maxsulotlarni taqdim etamiz</p>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="150">
+          {% for product in portfolio %}
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <img src="{{ product.image.url }}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <p>{{product.title}}</p>
+              <a href="{{ product.image.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{product.title}}"><i class="bx bx-plus"></i></a>
+              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End Portfolio Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Jamoa</span>
+          <h2>Jamoa</h2>
+          <p>Bizning kompaniyada kamida 5 yillik tajribaga ega hodimlar faoliyat yuritadi</p>
+        </div>
+
+        <div class="row">
+          {% for per in team %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
+            <div class="member">
+              <img src="{{per.image.url}}" alt="">
+              <h4>{{per.fullname}}</h4>
+              <span>{{position}}</span>
+              <p>{{per.description}}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </section>
+    <!-- End Team Section -->
+
+  </main><!-- End #main -->
+{%  endblock %}
+
+
+{%  block js %}
+<!-- js -->
+{%  endblock %}
+
