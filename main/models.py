@@ -1,5 +1,6 @@
 from django.db import models
 
+# Murojatlar uchun table
 class Contact(models.Model):
     fullname = models.CharField(max_length=255)
     number = models.CharField(max_length=255)
@@ -14,7 +15,7 @@ class Contact(models.Model):
         verbose_name = "Xabar"
         verbose_name_plural = "Xabarlar" 
         
-        
+# Xizmatlar uchun table        
 class Service(models.Model):
     title = models.CharField(max_length=255)
     body = models.TextField()
@@ -27,7 +28,7 @@ class Service(models.Model):
         verbose_name = "Xizmat"
         verbose_name_plural = "Xizmatlar" 
         
-        
+# Kompaniya haqidaji ma`lumot uchun table        
 class Blog(models.Model):
     title = models.CharField(max_length=255)
     body = models.TextField()
@@ -40,7 +41,7 @@ class Blog(models.Model):
         verbose_name = "Ma`lumot"
         verbose_name_plural = "Kompaniya haqida ma`lumot" 
         
-        
+# Sponsorlar uchun table        
 class Sponsour(models.Model):
     image = models.ImageField(upload_to='sponsour_icon/')
     
@@ -49,7 +50,7 @@ class Sponsour(models.Model):
         verbose_name = "Sponsor"
         verbose_name_plural = "Sponsorlar" 
         
-        
+# Maxsulotlar uchun table        
 class Portfolio(models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to='portfolio/')
@@ -61,7 +62,7 @@ class Portfolio(models.Model):
         verbose_name = "Mahsulot"
         verbose_name_plural = "Mahsulotlar" 
         
-        
+# Jamoa a`zolari uchun table        
 class Team(models.Model):
     fullname = models.CharField(max_length=255)
     position = models.CharField(max_length=255)

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from . import models
 
-
+# Asosiy menu oynasiga o`tkazadi va osha yerga ma`lumotlar omboridagi kerakli ma`lumotlarni ham yuboradi
 def index(request):
     service = models.Service.objects.all()[:3]
     team = models.Team.objects.all()
@@ -14,7 +14,7 @@ def index(request):
                }
     return render(request, "index.html", context)
 
-
+# Murojatlar oynasini ochadi. Agar murojat kelsa uni ma`lumotlar omboriga saqlaydi
 def contact(request):
     if request.method == "POST":
         print(1)
@@ -27,13 +27,13 @@ def contact(request):
         return redirect('index')
     return render(request, "contact.html")
 
-
+# Xizmatlar oynasiga kerakli barcha ma`lumotlarni ma`lumotlar omboridan olib yuboradi
 def services(request):
     service = models.Service.objects.all()
     context = {"service":service,}
     return render(request, "services.html", context)
 
-
+# Blog oynasiga kerakli barcha ma`lumotlarni ma`lumotlar omboridan olib yuboradi
 def blog(request):
     blog = models.Blog.objects.all()
     context = {"blog":blog,}
